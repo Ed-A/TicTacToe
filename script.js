@@ -35,6 +35,11 @@ function mark(x,y) {
         break;
     }
 
+    if(x == 0 && y == 0){b00 = 'x'}
+    if(x == 0 && y == 2){b02 = 'x'}
+    if(x == 2 && y == 0){b20 = 'x'}
+    if(x == 2 && y == 2){b22 = 'x'}
+
     if(x == 1 && y == 1){
       center = 'x';
     }
@@ -70,6 +75,11 @@ function mark(x,y) {
     if (x==1 && y==1){
       center = 'o';
     }
+
+    if(x == 0 && y == 0){b00 = 'o'}
+    if(x == 0 && y == 2){b02 = 'o'}
+    if(x == 2 && y == 0){b20 = 'o'}
+    if(x == 2 && y == 2){b22 = 'o'}
   };
 
   
@@ -85,11 +95,11 @@ function mark(x,y) {
 
   switch (center) {
     case 'o':
-      if(ocol0 >= 1 && ocol1 >= 1 && ocol2 >= 1 && orow0 >= 1 && orow1 >= 1 && orow2 >= 1){document.getElementById("owin").style.visibility = "visible";}
+      if((b00 == 'o' && b22 == 'o') || (b02 == 'o' && b20 == 'o')){document.getElementById("owin").style.visibility = "visible";}
       break;
   
     case 'x':
-      if( xcol0 >= 1 && xcol1 >= 1 && xcol2 >= 1 && xrow0 >= 1 && xrow1 >= 1 && xrow2 >= 1){document.getElementById("xwin").style.visibility = "visible";}
+      if((b00 == 'x' && b22 == 'x') || (b02 == 'x' && b20 == 'x')){document.getElementById("xwin").style.visibility = "visible";}
       break;
   }
 
