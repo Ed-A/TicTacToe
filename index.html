@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Browser</title>
+</head>
+
+<body>
+  <h1>
+    TicTacToe
+  </h1>
+    <table>
+      <tr><td id="b00"><button id="btn" onclick="mark(0,0);"></button></td><td id="b01"><button id="btn" onclick="mark(0,1);"></button></td><td id="b02"><button id="btn" onclick="mark(0,2);"></button></td></tr>
+
+      <tr><td id="b10"><button id="btn" onclick="mark(1,0);"></button></td><td id="b11"><button id="btn" onclick="mark(1,1);"></button></td><td id="b12"><button id="btn" onclick="mark(1,2);"></button></td></tr>
+      
+      <tr><td id="b20"><button id="btn" onclick="mark(2,0);"></button></td><td id="b21"><button id="btn" onclick="mark(2,1);"></button></td><td id="b22"><button id="btn" onclick="mark(2,2);"></button></td></tr>
+      
+    </table>
+    <p id="xwin">X wins the game.</p>
+    
+    <p id="owin">O wins the game.</p>
+
+     <button onclick="window.location.reload();">Restart</button>
+  <script src="script.js"></script>
+</body>
+
+</html>

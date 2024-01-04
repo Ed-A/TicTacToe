@@ -1,0 +1,37 @@
+body {
+  margin: 20px;
+}
+table{
+  border-collapse: collapse;
+}
+td{
+  border: 1px solid black;
+}
+
+#b00, #b10, #b20{
+  border-left: 0px;
+}
+#b00, #b01, #b02{
+  border-top: 0px;
+}
+#b02, #b12, #b22{
+  border-right: 0px;
+}
+#b20, #b21, #b22{
+  border-bottom: 0px;
+}
+
+td, button{
+  padding: 0px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+#btn{
+  opacity: 0%;
+}
+
+p{
+  visibility: collapse;
+}
