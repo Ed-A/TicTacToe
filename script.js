@@ -4,7 +4,7 @@ let i = 0;
 let xrow1 = 0, xrow2 = 0, xrow0 = 0, orow1 = 0, orow2 = 0, orow0 = 0, xcol0 = 0, xcol1 = 0, xcol2 = 0, ocol0 = 0, ocol1 = 0, ocol2 = 0;
 
 function mark(x,y) {
-  if(document.getElementById("win").style.visibility == "visible"){
+  if(document.getElementById("xwin").style.visibility == "visible" || document.getElementById("owin").style.visibility == "visible" ){
     return;
   }
   b = document.getElementById("b" + x + y);
