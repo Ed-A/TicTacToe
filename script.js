@@ -14,12 +14,17 @@ function mark(x,y) {
     switch(x){
       case 0:
         xrow0++;
+        if (y == 0){b00 = 'x'};
+        if (y == 2){b02 = 'x'};
         break;
       case 1:
         xrow1++;
+        if (y == 1){center = 'x'};
         break;
       case 2:
         xrow2++;
+        if (y == 0){b20 = 'x'};
+        if (y == 2){b22 = 'x'};
         break;
     }
 
@@ -34,15 +39,6 @@ function mark(x,y) {
         xcol2++;
         break;
     }
-
-    if(x == 0 && y == 0){b00 = 'x'}
-    if(x == 0 && y == 2){b02 = 'x'}
-    if(x == 2 && y == 0){b20 = 'x'}
-    if(x == 2 && y == 2){b22 = 'x'}
-
-    if(x == 1 && y == 1){
-      center = 'x';
-    }
   }
   else{
     b.innerHTML = "O";
@@ -50,12 +46,17 @@ function mark(x,y) {
     switch(x){
       case 0:
         orow0++;
+        if (y == 0){b00 = 'o'};
+        if (y == 2){b02 = 'o'}; 
         break;
       case 1:
         orow1++;
+        if (y == 1){center = 'o'};
         break;
       case 2:
         orow2++;
+        if (y == 0){b20 = 'o'};
+        if (y == 2){b22 = 'o'};
         break;
     }
 
@@ -70,16 +71,6 @@ function mark(x,y) {
         ocol2++;
         break;
     }
-
-
-    if (x==1 && y==1){
-      center = 'o';
-    }
-
-    if(x == 0 && y == 0){b00 = 'o'}
-    if(x == 0 && y == 2){b02 = 'o'}
-    if(x == 2 && y == 0){b20 = 'o'}
-    if(x == 2 && y == 2){b22 = 'o'}
   };
 
   
