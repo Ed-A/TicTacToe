@@ -12,7 +12,7 @@ function mark(x,y) { // x : row index & y : column index
   }
   b = document.getElementById("b" + x + y); //gets clicked cell<td> by id 
 
-  if (i%2 == 0){ //even turn
+  if (i%2 != 0){ //even turn
     b.innerHTML = "X"; //marks X
 
     switch(x){

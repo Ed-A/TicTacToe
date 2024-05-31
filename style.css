@@ -1,15 +1,30 @@
+
 body {
   margin: 20px;
+  background-color: gray;
 }
 table{
   border-collapse: collapse;
+  height: max-content;
+  width: max-content;
 }
+
+h1{
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: aliceblue;
+  text-align: center;
+}
+
 td{
-  border: 1px solid black;
+  border: 3px solid black;
   padding: 0px;
   width: 50px;
   height: 50px;
   text-align: center;
+  font-size: larger;
+  background-color: aliceblue;
+  border-radius: 5px;
+
 }
 
 #b00, #b10, #b20{
@@ -27,4 +42,14 @@ td{
 
 p{
   visibility: collapse;
+  background-color: azure;
+  text-align: center;
+  width: fit-content;
+  display: block;
+  margin: auto auto 1% auto;
+}
+
+button, table{
+  display: block;
+  margin: auto;
 }
