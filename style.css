@@ -41,7 +41,7 @@ td{
 }
 
 p{
-  visibility: collapse;
+  visibility: hidden;
   background-color: azure;
   text-align: center;
   width: fit-content;
