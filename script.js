@@ -1,110 +1,108 @@
-let i = 0; //count of turn
-let xrow0 = 0, xrow1 = 0, xrow2 = 0; //count of each row with x mark
-let orow0 = 0, orow1 = 0, orow2 = 0; //count of each row with o mark
-let xcol0 = 0, xcol1 = 0, xcol2 = 0; //count of each column with x mark
-let ocol0 = 0, ocol1 = 0, ocol2 = 0; //count of each column with o mark
-let X=0; O=0;
+let no_of_turn = 0;
+let no_of_X=0; 
+let no_of_O=0;
+let index_of_x = [];
+let index_of_o = [];
+let element;
 
-function mark(x,y) { // x : row index & y : column index
-  if(document.getElementById("xwin").style.visibility == "visible" || document.getElementById("owin").style.visibility == "visible"){
-    return; //pre-test for end of game
+window.addEventListener("click", exe);
+
+function exe(){
+
+	let main = event.srcElement;
+	let id = main.id;
+  
+	if(id != "" && main.innerHTML==""){
+    write(main, id);
   }
-  b = document.getElementById("b" + x + y); //gets clicked cell<td> by id 
 
-  if(b.innerHTML==""){
-    if (i%2 != 0){ //odd turn
-      b.innerHTML = "X"; //marks X
-
-      switch(x){
-        case 0:
-          xrow0++; // counts x in row 0
-          X++;
-          if (y == 0){b00 = 'x'}; // counts top left corner as x
-          if (y == 2){b02 = 'x'}; // counts top right corner as x
-          break;
-        case 1:
-          xrow1++; // counts x in row 1
-          X++;
-          if (y == 1){center = 'x'}; // counts center as x
-          break;
-        case 2:
-          xrow2++; // counts x in row 2
-          X++;
-          if (y == 0){b20 = 'x'}; // counts bottom left corner as x
-          if (y == 2){b22 = 'x'}; // counts bottom right corner as x
-          break;
-      }
-
-      switch(y){
-        case 0:
-          xcol0++; // counts x in column 0
-          break;
-        case 1:
-          xcol1++; // counts x in column 1
-          break;
-        case 2:
-          xcol2++; // counts x in column 2
-          break;
-      }
+  if(index_of_x.length>=3){
+    if(checkit('x')){
+      window.removeEventListener("click", exe);
     }
-
-    else{ //even turn
-      b.innerHTML = "O"; //marks O
-      
-      switch(x){
-        case 0:
-          orow0++; // counts o in row 0
-          O++;
-          if (y == 0){b00 = 'o'}; // counts top left corner as o
-          if (y == 2){b02 = 'o'}; // counts top right corner as o
-          break;
-        case 1:
-          orow1++; // counts o in row 1
-          O++;
-          if (y == 1){center = 'o'}; // counts center as o
-          break;
-        case 2:
-          orow2++; // counts o in row 2
-          O++;
-          if (y == 0){b20 = 'o'}; // counts bottom left corner as o
-          if (y == 2){b22 = 'o'}; // counts bottom right corner as o
-          break;
-      }
-
-      switch(y){
-        case 0:
-          ocol0++; // counts o in column 0
-          break;
-        case 1:
-          ocol1++; // counts o in column 1
-          break;
-        case 2:
-          ocol2++; // counts o in column 2
-          break;
-      }
+  }
+  if(index_of_o.length>=3){
+    if(checkit('o')){
+      window.removeEventListener("click", exe);
     }
-  };
-  
-  if(xrow0 == 3 || xrow1 == 3 || xrow2 == 3 || xcol1 == 3 || xcol2 == 3 || xcol0 == 3){ // if one column/row has 3 x's ----- x wins.
-    document.getElementById("xwin").style.visibility = "visible";
   }
-  if(orow0 == 3 || orow1 == 3 || orow2 == 3 || ocol1 == 3 || ocol2 == 3 || ocol0 == 3){ // if one column/row has 3 o's ----- o wins.
-    document.getElementById("owin").style.visibility = "visible";  
+  if(no_of_O==5){
+    window.removeEventListener("click", exe);
+    document.getElementById('reload').classList.remove('hidden');
+    document.getElementById('display').innerHTML = "Game is a Draw!";
   }
-  if((O==4 && X==5) || (X==4 && O==5)){
-    document.getElementById("draw").style.visibility = "visible";
-  }
-  
-  i++;
+}
 
-  switch (center) { // for diagonal win ----- applies to only the one which has center
-    case 'o':
-      if((b00 == 'o' && b22 == 'o') || (b02 == 'o' && b20 == 'o')){document.getElementById("owin").style.visibility = "visible";}
-      break; //checks if opposite corners have o ----- if yes, wins.
+
+function checkit(symbol){
   
+  let array = [];
+
+  switch(symbol){
     case 'x':
-      if((b00 == 'x' && b22 == 'x') || (b02 == 'x' && b20 == 'x')){document.getElementById("xwin").style.visibility = "visible";}
-      break; //checks if opposite corners have x ----- if yes, wins.
+      array = index_of_x;
+      break;
+    case 'o':
+      array = index_of_o;
+      break;
   }
 
+  //for diagonal win
+  if((array.includes('00') && array.includes('11') && array.includes('22')) ||(array.includes('02') && array.includes('11') && array.includes('20')) ){
+    switch(symbol){
+      case 'x':
+        document.getElementById('display').innerHTML = "X wins";
+        break;
+      case 'o':
+        document.getElementById('display').innerHTML = "O wins";
+        break;
+    }
+    document.getElementById('reload').classList.remove('hidden');
+    return true;
+  }
+
+  //for horizontal win
+  if(array.includes('00') && array.includes('01') && array.includes('02') || array.includes('10') && array.includes('11') && array.includes('12') || array.includes('20') && array.includes('21') && array.includes('22') ){
+    switch(symbol){
+      case 'x':
+        document.getElementById('display').innerHTML = "X wins";
+        break;
+      case 'o':
+        document.getElementById('display').innerHTML = "O wins";
+        break;
+    }
+    document.getElementById('reload').classList.remove('hidden');
+    return true;
+  }
+
+
+  //for vertical win
+  if(array.includes('00') && array.includes('10') && array.includes('20') || array.includes('01') && array.includes('11') && array.includes('21') || array.includes('02') && array.includes('12') && array.includes('22') ){
+  {
+    switch(symbol){
+      case 'x':
+        document.getElementById('display').innerHTML = "X wins";
+        break;
+      case 'o':
+        document.getElementById('display').innerHTML = "O wins";
+        break;
+    }
+    document.getElementById('reload').classList.remove('hidden');
+    return true;
+  }
+}
+}
+
+function write(element, id){
+  if(no_of_turn%2==0){
+    element.innerHTML = "<img src='O.png'>";
+    no_of_turn++;
+    no_of_O++;
+    index_of_o.push(id);
+  }else{
+    element.innerHTML = "<img src='X.png'>";
+    no_of_turn++;
+    no_of_X++;
+    index_of_x.push(id);
+  }
 }

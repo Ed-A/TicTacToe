@@ -1,55 +1,82 @@
-
-body {
-  margin: 20px;
-  background-color: gray;
+img{
+  height: 80px;
+  width: 80px;
 }
+
 table{
-  border-collapse: collapse;
-  height: max-content;
-  width: max-content;
-}
-
-h1{
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  color: aliceblue;
-  text-align: center;
+  display: flexbox;
+  margin: auto;
 }
 
 td{
-  border: 3px solid black;
-  padding: 0px;
-  width: 50px;
-  height: 50px;
+  height: 100px;
+  width: 100px;
+}
+
+.display{
+  margin-bottom: 0%;
+}
+
+.no{
+  height: 0px;
+  width: 0px;
+  box-shadow: 0px 0px 8px 3px rgb(0,200,200);
+  background-color: white;
+}
+
+.no:hover{
+  background-color: white;
+}
+
+td:hover{
+  background-color: rgb(0, 20, 20);
+}
+
+table, td{
+  border-collapse: collapse;
+}
+
+.big{
+  font-size: 40px;
+  font-weight: bold;
+  color: gainsboro;
+  margin: 20px;
+}
+
+body {
+  background-color: #1d1e22;
+  color: white;
   text-align: center;
-  font-size: larger;
-  background-color: aliceblue;
-  border-radius: 5px;
-
+  font-family: cursive;
+  margin: 0%;
 }
 
-#b00, #b10, #b20{
-  border-left: 0px;
-}
-#b00, #b01, #b02{
-  border-top: 0px;
-}
-#b02, #b12, #b22{
-  border-right: 0px;
-}
-#b20, #b21, #b22{
-  border-bottom: 0px;
+.footer{
+  bottom: 0;
+  text-align: right;
+  padding: 10px;
+  width: 95%;
+  position: fixed;
 }
 
-p{
-  visibility: hidden;
-  background-color: azure;
-  text-align: center;
+.note{
+  border: 3px dashed white;
   width: fit-content;
   display: block;
-  margin: auto auto 1% auto;
+  margin: 30px auto;
+  padding: 10px;
 }
 
-button, table{
-  display: block;
-  margin: auto;
+.hidden{
+  visibility: hidden;
+}
+
+.button{
+  background-color: rgba(0,0,0,0);
+  border: 0px;
+  font-size: 50px;
+}
+
+.button:hover{
+  cursor: pointer;
 }

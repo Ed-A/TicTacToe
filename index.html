@@ -3,42 +3,60 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TTT</title>
   <link rel="stylesheet" href="style.css" />
-  <title>Browser</title>
 </head>
-
 <body>
-  <h1>
-    TicTacToe
-  </h1>
-    <table>
-      <tr>
-        <td id="b00" onclick="mark(0,0);"></td> 
-        <td id="b01" onclick="mark(0,1);"></td>
-        <td id="b02" onclick="mark(0,2);"></td>
-      </tr>
+  <p class="big">TICTACTOE</p>
+  <div class="note">
+    <em>How to Play?</em><br>Click on any of the grids first to play as '<a style="color: #FDADC8;">O</a>'.<br> The second click(player) plays as '<a style="color: #3E46CB;">X</a>'.<br>
+  </div>
+  <table>
+    <tr>
+      <td id='00' class="visible"></td>
+      <td class='no'></td>
+      <td id='01' class="visible"></td>
+      <td class="no"></td>
+      <td id='02' class="visible"></td>
+    </tr>
+    <tr>
+      <td class="no"></td>
+      <td class="no"></td>
+      <td class="no"></td>
+      <td class="no"></td>
+      <td class="no"></td>
+    </tr>
+    <tr>
+      <td id='10' class="visible"></td>
+      <td class="no"></td>
+      <td id='11' class="visible"></td>
+      <td class="no"></td>
+      <td id='12' class="visible"></td>
+    </tr>
+    <tr>
+      <td class="no"></td>
+      <td class="no"></td>
+      <td class="no"></td>
+      <td class="no"></td>
+      <td class="no"></td>
+    </tr>
+    <tr>
+      <td id='20' class="visible"></td>
+      <td class="no"></td>
+      <td id='21' class="visible"></td>
+      <td class="no"></td>
+      <td id='22' class="visible"></td>
+    </tr>
+  </table>
 
-      <tr>
-        <td id="b10" onclick="mark(1,0);"></td>
-        <td id="b11" onclick="mark(1,1);"></td>
-        <td id="b12" onclick="mark(1,2);"></td>
-      </tr>
-      
-      <tr>
-        <td id="b20" onclick="mark(2,0);"></td>
-        <td id="b21" onclick="mark(2,1);"></td>
-        <td id="b22" onclick="mark(2,2);"></td>
-      </tr>
-      
-    </table>
-    <p id="xwin">X wins the game.</p>
-    <!--WINNING PROMPT-->
-    <p id="owin">O wins the game.</p>
-    <p id="draw">GAME IS A DRAW!</p>
+  <p class="big" id="display"></p>
 
-     <button onclick="window.location.reload();">Replay !</button> <!--RESTART BUTTON TO RELOAD PAGE AND RESTART GAME-->
-  <script src="script.js"></script>
+
+  <button onclick="location.reload()" class="button hidden" id="reload">🔄️</button>
+
+  <div class="footer"><em>created by</em> Nischal Atreya | 2024</div>
+
 </body>
-
+<script src="script.js"></script>
 </html>
