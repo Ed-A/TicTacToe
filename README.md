@@ -20,6 +20,8 @@ This is a simple implementation of the classic Tic-Tac-Toe game, created using b
 - `index.html`: The main HTML structure for the game.
 - `style.css`: Contains the styling for the game board and display.
 - `script.js`: Handles the game logic (turns, win conditions, and game reset).
+- `X.png`: PNG format image for X piece.
+- `O.png`: PNG format image for O piece.
 
 ## How it Works
 - Each player's move is handled through a click event, and the game board is updated in real-time.
